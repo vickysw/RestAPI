@@ -28,11 +28,11 @@ class Controller{
         
         $this->loader = new Loader();
         
-        if(is_a($this,$_REQUEST['controller']."Controller"))
+        if(is_a($this,$_REQUEST['controller']))
         {
-            $this->controller = $_REQUEST['controller']."Controller";
-            $this->action = $_REQUEST['action']."Action";
-          
+            $this->controller = $_REQUEST['controller'];
+            $this->action = $_REQUEST['action'];
+           
             if(!in_array($this->action,get_class_methods($this->controller))){
                 header( '400 Not Found' );
                 exit( 'Action not found' );
@@ -45,24 +45,6 @@ class Controller{
             exit( 'Class not found' );
         }
        
-    }
-
-
-    public function redirect($url,$message,$wait = 0){
-
-        if ($wait == 0){
-
-            header("Location:$url");
-
-        } else {
-
-            include CURR_VIEW_PATH . "message.html";
-
-        }
-
-
-        exit;
-
     }
 
 }

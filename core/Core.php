@@ -25,18 +25,18 @@ Class Core{
     
         define("ROOT", getcwd() . DS);
     
-        define("APP_PATH", ROOT . 'application' . DS);
+        define("APP_PATH", ROOT . 'App' . DS);
     
         define("CONFIG_PATH", ROOT . "config" . DS);
     
         define("CONTROLLER_PATH", APP_PATH . "controllers" . DS);
     
         define("MODEL_PATH", APP_PATH . "models" . DS);
-    
-        if(!file_exists(CONTROLLER_PATH.$_REQUEST['controller'].'Controller.php')){
-            header( '404 Not Found' );
-            exit( 'Request not found' );
-        }
+        
+        // if(!file_exists(CONTROLLER_PATH.$_REQUEST['controller'].'.php')){
+        //     header( '404 Not Found' );
+        //     exit( 'Request not found' );
+        // }
 
 
         define("CORE_PATH", "core" . DS);
@@ -78,7 +78,6 @@ Class Core{
 
 private static function autoload()
 {
-
     spl_autoload_register(array(__CLASS__,'load'));
 
 }
@@ -88,38 +87,25 @@ private static function autoload()
 
     private static function load($classname)
     {
-
-
         // Here simply autoload app’s controller and model classes
-
-        if (substr($classname, -10) == "Controller"){
-
-            // Controller
-
-            require_once CONTROLLER_PATH . "$classname.php";
-
-        } elseif (substr($classname, -5) == "Model"){
-
-            // Model
-
-            require_once  MODEL_PATH . "$classname.php";
-
-        }
+            if(file_exists(CONTROLLER_PATH.$classname.".php"))
+                require_once CONTROLLER_PATH . "$classname.php";
+            else if(file_exists(MODEL_PATH.$classname.".php"))
+                require_once MODEL_PATH . "$classname.php";
 
     }
-    // Routing and dispatching
 
+    // Routing and dispatching
     private static function dispatch()
     {
 
         // Instantiate the controller class and call its action method
-
-        $controller_name = CONTROLLER . "Controller";
-
-        $action_name = ACTION . "Action";
+        $controller_name = CONTROLLER;
+        
+        $action_name = ACTION;
 
         $controller = new $controller_name;
-
+        
         $controller->$action_name();
 
     }

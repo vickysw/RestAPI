@@ -1,13 +1,13 @@
 <?php 
 
-class testController extends Controller
+class test extends Controller
 {
     private $mydata;
-
+    
     public function __construct()
     {
         parent::__construct();
-
+        
         $this->loader->helper('custom');
         
         $this->mydata = json_decode(file_get_contents("php://input"), true);
@@ -16,11 +16,10 @@ class testController extends Controller
         }
     }
 
-    public function getBasicProfileAction()
+    public function getBasicProfile()
     {
         $keys = array("bp_tal_id", "bp_entity_id");
         $data =  check_api_keys($keys,$this->mydata);
-
 
         $userModel = new UserModel("basic_profile");
 
