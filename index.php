@@ -1,6 +1,7 @@
 <?php
-// ini_set("display_errors", 1);
-require 'core/Core.php';
+ini_set("display_errors", 1);
+
+require __DIR__ . "/vendor/autoload.php";
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
 
@@ -14,6 +15,6 @@ if($url == "/"){
     
 }
 
-\core\Core::run();
+App\Core\Main::run();
 
 ?>

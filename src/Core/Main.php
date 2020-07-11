@@ -1,7 +1,8 @@
 <?php
-namespace core;
+namespace App\Core;
 
-Class Core{
+Class Main{
+
     public static function run() {
 
        // echo "run()";
@@ -25,13 +26,13 @@ Class Core{
     
         define("ROOT", getcwd() . DS);
     
-        define("APP_PATH", ROOT . 'App' . DS);
+        define("APP_PATH", ROOT . 'src' . DS);
     
-        define("CONFIG_PATH", ROOT . "config" . DS);
+        define("CONFIG_PATH", APP_PATH . "Config" . DS);
     
-        define("CONTROLLER_PATH", APP_PATH . "controllers" . DS);
+        define("CONTROLLER_PATH", APP_PATH . "Controllers" . DS);
     
-        define("MODEL_PATH", APP_PATH . "models" . DS);
+        define("MODEL_PATH", APP_PATH . "Models" . DS);
         
         // if(!file_exists(CONTROLLER_PATH.$_REQUEST['controller'].'.php')){
         //     header( '404 Not Found' );
@@ -39,13 +40,13 @@ Class Core{
         // }
 
 
-        define("CORE_PATH", "core" . DS);
+        define("CORE_PATH", APP_PATH."Core" . DS);
     
-        define('DB_PATH', "database" . DS);
+        define('DB_PATH', CORE_PATH."Database" . DS);
     
-        define("LIB_PATH", "libraries" . DS);
+        define("LIB_PATH", APP_PATH."libraries" . DS);
     
-        define("HELPER_PATH", "helpers" . DS);
+        define("HELPER_PATH", APP_PATH."helpers" . DS);
     
         define("UPLOAD_PATH", "uploads" . DS);
         
@@ -58,16 +59,17 @@ Class Core{
     
         // Load core classes
     
-        require CORE_PATH . "Controller.class.php";
+        // require CORE_PATH . "Controller.class.php";
     
-        require CORE_PATH . "Loader.class.php";
+        // require CORE_PATH . "Loader.class.php";
     
-        require DB_PATH . "Mysql.class.php";
+        // require DB_PATH . "Mysql.class.php";
     
-        require CORE_PATH . "Model.class.php";
+        // require CORE_PATH . "Model.php";
         
         // Load configuration file
-    
+
+        
         $GLOBALS['config'] = require CONFIG_PATH . "config.php";
        
     
@@ -88,11 +90,18 @@ private static function autoload()
     private static function load($classname)
     {
         // Here simply autoload app’s controller and model classes
-            if(file_exists(CONTROLLER_PATH.$classname.".php"))
+        if(!strpos($classname,'\\')){
+           
+            if(file_exists(CONTROLLER_PATH.$classname.".php")){
+
                 require_once CONTROLLER_PATH . "$classname.php";
-            else if(file_exists(MODEL_PATH.$classname.".php"))
+
+            }else if(file_exists(MODEL_PATH.$classname.".php")) {
+
                 require_once MODEL_PATH . "$classname.php";
 
+            }
+        }
     }
 
     // Routing and dispatching

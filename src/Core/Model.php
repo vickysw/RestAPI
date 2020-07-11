@@ -1,11 +1,8 @@
 <?php
-
-// core/Model.class.php
-
-// Base Model Class
+namespace App\Core;
 
 class Model{
-
+    
     protected $db; //database connection object
 
     protected $table; //table name
@@ -26,10 +23,8 @@ class Model{
 
         $dbconfig['charset'] = $GLOBALS['config']['charset'];
 
-       
-
-        $this->db = new Mysql($dbconfig);
-
+        $this->db = new Databse\Mysql($dbconfig);
+        
         $this->table = $GLOBALS['config']['prefix'] . $table;
 
         $this->getFields();

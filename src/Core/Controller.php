@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Core;
+
+use App\Core\Loader as Loader;
+
 if ( $_SERVER['REQUEST_METHOD']=='GET' ) {
     /* 
        Up to you which header to send, some prefer 404 even if 

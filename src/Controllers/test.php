@@ -1,6 +1,9 @@
 <?php 
 
-class test extends Controller
+// use App\Core;
+use App\Models\UserModel as user;
+
+class test extends App\Core\Controller
 {
     private $mydata;
     
@@ -21,7 +24,7 @@ class test extends Controller
         $keys = array("bp_tal_id", "bp_entity_id");
         $data =  check_api_keys($keys,$this->mydata);
 
-        $userModel = new UserModel("basic_profile");
+        $userModel = new user("basic_profile");
 
         $users = $userModel->getUsers();
 

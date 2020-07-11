@@ -1,6 +1,7 @@
 <?php
+namespace App\Models;
 
-// application/models/UserModel.class.php
+use App\Core\Model;
 
 class UserModel extends Model{
 
