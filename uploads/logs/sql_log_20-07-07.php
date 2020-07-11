@@ -1,5 +1,0 @@
-DESC basic_profile  [2020-07-07 10:34:25]
-select * from basic_profile  [2020-07-07 10:34:25]
-set names utf8  [2020-07-07 10:35:08]
-DESC basic_profile  [2020-07-07 10:35:08]
-select * from basic_profile  [2020-07-07 10:35:08]
