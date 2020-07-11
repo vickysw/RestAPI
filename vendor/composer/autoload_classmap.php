@@ -9,7 +9,7 @@ return array(
     'App\\Core\\Controller' => $baseDir . '/src/Core/Controller.php',
     'App\\Core\\Databse\\Mysql' => $baseDir . '/src/Core/Database/Mysql.php',
     'App\\Core\\Loader' => $baseDir . '/src/Core/Loader.php',
+    'App\\Core\\Main' => $baseDir . '/src/Core/Main.php',
     'App\\Core\\Model' => $baseDir . '/src/Core/Model.php',
-    'App\\Main' => $baseDir . '/src/Core/Main.php',
-    'App\\Models\\UserModel' => $baseDir . '/src/models/UserModel.php',
+    'App\\Models\\UserModel' => $baseDir . '/src/Models/UserModel.php',
 );

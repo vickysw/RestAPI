@@ -33,12 +33,6 @@ Class Main{
         define("CONTROLLER_PATH", APP_PATH . "Controllers" . DS);
     
         define("MODEL_PATH", APP_PATH . "Models" . DS);
-        
-        // if(!file_exists(CONTROLLER_PATH.$_REQUEST['controller'].'.php')){
-        //     header( '404 Not Found' );
-        //     exit( 'Request not found' );
-        // }
-
 
         define("CORE_PATH", APP_PATH."Core" . DS);
     
@@ -56,23 +50,9 @@ Class Main{
         define("CONTROLLER", isset($_REQUEST['controller']) ? $_REQUEST['controller'] : 'Index');
 
         define("ACTION", isset($_REQUEST['action']) ? $_REQUEST['action'] : 'index');
-    
-        // Load core classes
-    
-        // require CORE_PATH . "Controller.class.php";
-    
-        // require CORE_PATH . "Loader.class.php";
-    
-        // require DB_PATH . "Mysql.class.php";
-    
-        // require CORE_PATH . "Model.php";
         
         // Load configuration file
-
-        
         $GLOBALS['config'] = require CONFIG_PATH . "config.php";
-       
-    
     }
 
 

@@ -24,9 +24,9 @@ class ComposerStaticInitb2e03895e778e7baac59d1e48630a0c5
         'App\\Core\\Controller' => __DIR__ . '/../..' . '/src/Core/Controller.php',
         'App\\Core\\Databse\\Mysql' => __DIR__ . '/../..' . '/src/Core/Database/Mysql.php',
         'App\\Core\\Loader' => __DIR__ . '/../..' . '/src/Core/Loader.php',
+        'App\\Core\\Main' => __DIR__ . '/../..' . '/src/Core/Main.php',
         'App\\Core\\Model' => __DIR__ . '/../..' . '/src/Core/Model.php',
-        'App\\Main' => __DIR__ . '/../..' . '/src/Core/Main.php',
-        'App\\Models\\UserModel' => __DIR__ . '/../..' . '/src/models/UserModel.php',
+        'App\\Models\\UserModel' => __DIR__ . '/../..' . '/src/Models/UserModel.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
