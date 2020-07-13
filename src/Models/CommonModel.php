@@ -16,11 +16,11 @@ class CommonModel extends Model{
      */
     public function getData($table,$where = ""){ 
 
-        $sql = "select * from ".$table. $where;
+        $sql = "SELECT * FROM ".$table." WHERE ".$where;
 
-        $users = $this->db->getAll($sql);
-        // var_dump($users); die;
-        return $users;
+        $data = $this->db->getRow($sql);
+        
+        return $data;
 
     }
 

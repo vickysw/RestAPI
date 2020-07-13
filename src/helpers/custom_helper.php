@@ -143,7 +143,7 @@ function respond_error_to_api($message, $return_array = array(), $error_code = 4
         $message = str_replace($match, strtoupper($match), $message);
     }
     $res["message"] = str_replace("otp", "OTP", ucfirst(strtolower(str_replace("_", " ", $message))));
-    $res["error"]   = $return_array;
+    $res["error"]   = empty($return_array) ? (object)[] : $return_array;
     respond_to_api($res, $applyFilter);
 }
 
