@@ -89,7 +89,7 @@ private static function autoload()
     {
 
         // Instantiate the controller class and call its action method
-        $controller_name = CONTROLLER;
+        $controller_name = ucfirst(CONTROLLER); 
         
         $action_name = ACTION;
 
